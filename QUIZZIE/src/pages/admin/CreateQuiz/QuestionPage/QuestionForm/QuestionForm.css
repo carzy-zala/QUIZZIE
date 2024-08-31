@@ -1,14 +1,14 @@
 .create-quiz-card {
   width: 84.5rem;
-  height: 58rem;
+  height: 55rem;
   border-radius: 1rem;
   background-color: #ffffff;
-  padding: 3rem 9rem;
+  padding: 2rem 9rem;
 }
 
 .create-quiz-form {
   display: grid;
-  grid-template-rows: 0fr 0fr;
+  grid-template-rows: 0fr 0fr 0fr;
   gap: 2rem;
 }
 

@@ -59,7 +59,7 @@
 .options-and-timer-grid {
   display: grid;
   grid-template-columns: 6fr 1fr;
-  gap: 3.1rem;
+  gap: 3rem;
 }
 
 /* Options  */
@@ -67,7 +67,7 @@
 .options-grid {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr ;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .option-grid {
