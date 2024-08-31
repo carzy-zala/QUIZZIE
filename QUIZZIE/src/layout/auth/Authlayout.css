@@ -1,5 +1,6 @@
 .auth-layout {
   display: grid;
+  grid-template-rows: auto;
   justify-content: center;
   align-items: center;
   height: 100dvh;
@@ -7,11 +8,11 @@
 
 .auth-layout-container {
   width: 106rem;
-  height: 58rem;
+  height: 53rem;
   border-radius: 1.5rem;
   background-color: #ffffff;
   display: grid;
   grid-template-rows: 1fr 3fr;
-  gap:5rem;
+  gap: 5rem;
   padding: 2rem 0 2rem 0;
 }
