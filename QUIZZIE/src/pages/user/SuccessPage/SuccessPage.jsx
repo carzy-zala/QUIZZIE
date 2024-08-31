@@ -37,6 +37,7 @@ function SuccessPage() {
 
   useEffect(() => {
     if (quizType === "qa" && !sessionStorage.getItem("score")) {
+      sessionStorage.setItem("score", 0);
       getScore();
     }
   }, []);
@@ -49,7 +50,9 @@ function SuccessPage() {
       </div>
       <p style={{ alignSelf: "start" }} className="qa-success-text">
         Your Score is
-        <span className="score">{` 0${score}/0${totalQuestions}`}</span>
+        <span className="score">{` 0${
+          score ? score : 0
+        }/0${totalQuestions}`}</span>
       </p>
     </div>
   ) : (

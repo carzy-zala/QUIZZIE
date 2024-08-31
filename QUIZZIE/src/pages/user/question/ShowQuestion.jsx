@@ -65,6 +65,7 @@ function ShowQuestion({
     if (timer !== "off") {
       const sec = parseInt(timer);
       countDown(sec);
+      
     }
   }, [currentQuestionNo]);
 

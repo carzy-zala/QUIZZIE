@@ -38,11 +38,10 @@ function ShowQuiz() {
         (response) => response.data
       ))();
 
-    (async () => await setUserToken(response.tempAccessToken))();
+    await (async () => await setUserToken(response.tempAccessToken))();
   };
 
   useEffect(() => {
-
     if (!localStorage.getItem("tempAccessToken")) {
       intializeGuestUser();
     }
@@ -51,7 +50,7 @@ function ShowQuiz() {
   }, []);
 
   return (
-    <>
+    <div>
       {!!quiz && (
         <ShowQuestion
           currentQuestionNo={currentQuestionNo}
@@ -66,7 +65,7 @@ function ShowQuiz() {
           quizType={quiz.quizType}
         />
       )}
-    </>
+    </div>
   );
 }
 
