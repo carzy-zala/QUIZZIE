@@ -35,7 +35,7 @@ function Quizcreated({ quizURL, setIsQuizCreated, cancelHandle }) {
           <Input
             ref={link}
             className="quiz-created-success-link"
-            value={`${import.meta.env.VITE_QUIZ_BASE_URL}${quizURL}`}
+            value={`${window.location.origin}/user/quiz/${quizURL}`}
             readOnly
           />
         </div>

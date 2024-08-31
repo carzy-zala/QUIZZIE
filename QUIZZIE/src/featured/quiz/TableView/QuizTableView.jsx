@@ -70,7 +70,7 @@ const QuizTableView = () => {
 
   // #region share handle
   const handleShare = (title, id) => {
-    const quizURL = `${import.meta.env.VITE_QUIZ_BASE_URL}${id}/${title.replace(
+    const quizURL = `${window.location.origin}/user/quiz/${id}/${title.replace(
       " ",
       "-"
     )}`;
