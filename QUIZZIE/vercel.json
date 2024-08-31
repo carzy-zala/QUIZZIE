@@ -1,6 +1,32 @@
 {
- "rewrites": [{
-"source":"/(.*)","destination":"/"
-}]
-
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/login",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/admin/dashboard",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/admin/analytics",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/admin/analytics/quizanalytics/:quizId",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/user/quiz/:quizId/:title",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/user/success/:totalQuestions/:quizType",
+      "destination": "/index.html"
+    }
+  ]
 }
