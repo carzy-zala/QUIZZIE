@@ -1,7 +1,7 @@
 .signup-main-div {
   display: grid;
-  grid-template-columns: 1fr 1.32fr;
-  gap: 3.1rem;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 2rem;
   align-items: center;
 }
 

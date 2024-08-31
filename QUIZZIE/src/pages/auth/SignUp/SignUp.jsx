@@ -112,7 +112,7 @@ function SignUp() {
           placeholder={errors.cfpass && errors.cfpass.message}
         />
 
-        <Button type="submit" className="signup-btn" children="signup" />
+        <Button type="submit" className="signup-btn" children="Sign-Up" />
       </div>
     </form>
   );
