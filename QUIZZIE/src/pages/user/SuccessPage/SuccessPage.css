@@ -1,0 +1,94 @@
+.user-question-div {
+  display: flex;
+  justify-content: center;
+  height: 100dvh;
+  align-items: center;
+  background-color: #041325;
+}
+
+/* Poll */
+.poll-success-card {
+  height: 76vh;
+  width: 86%;
+  background-color: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0px 0px 30px 0px #00000026;
+  /* padding: 1rem 2rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.poll-success-text {
+  width: 70rem;
+  font-size: 7.4rem;
+  font-weight: 700;
+  line-height: 11.1rem;
+  text-align: center;
+}
+
+/* QA */
+.qa-success-card {
+  height: 76vh;
+  width: 86%;
+  background-color: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0px 0px 30px 0px #00000026;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: end;
+}
+
+.qa-success-text {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 6rem;
+  text-align: center;
+}
+
+.score {
+  color: #60b84b;
+}
+
+.trophy-img {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+@media screen and (max-width: 770px) {
+  /* Poll */
+  .poll-success-card {
+    height: 100dvh;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    justify-content: flex-start;
+  }
+
+  .poll-success-text {
+    width: 28.7rem;
+    margin: auto;
+    font-size: 3.4rem;
+    font-weight: 700;
+    line-height: 5.1rem;
+    text-align: center;
+  }
+
+  /* Quiz */
+
+  .qa-success-card {
+    height: 100dvh;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .qa-success-text {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 6rem;
+    text-align: center;
+  }
+}

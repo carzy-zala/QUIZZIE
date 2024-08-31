@@ -1,0 +1,128 @@
+.quiz-card-div {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000cf;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.quiz-card {
+  width: 84.5rem;
+  height: 42.2rem;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+.quiz-card-grid {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  border-radius: 1rem;
+  width: 64.8rem;
+  height: 25.5rem;
+}
+
+.quiz-feilds-type-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.question-field {
+  background-color: #fff;
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 2.5rem 0px #00000026;
+  width: 66rem;
+  height: 8.1rem;
+  border-radius: 1rem;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 37.5rem;
+  padding: 2rem;
+}
+
+.question-field::placeholder {
+  color: #9f9f9f;
+}
+
+#quizType {
+  color: #9f9f9f;
+  font-size: 2.5rem;
+  line-height: 3.75rem;
+  font-weight: 500;
+}
+
+.radio-btn-div {
+  float: left;
+  width: 17.1rem;
+  height: 4.6rem;
+  position: relative;
+  text-align: center;
+}
+
+.radio-btn-div label,
+.radio-btn-div input {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: 500;
+}
+
+.radio-btn-div .radioBtn {
+  opacity: 0.01;
+  z-index: 100;
+}
+
+.radio-btn-div .radioBtn + label {
+  box-shadow: 0px 0px 25px 0px #00000026;
+}
+
+.radio-btn-div .radioBtn:checked + label {
+  background-color: #60b84b;
+  color: #fff;
+}
+
+/* Buttons */
+
+.quiz-feilds-btns {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 2rem;
+}
+
+.cancel-btn {
+  width: 27.9rem;
+  height: 4.614rem;
+  font-size: 2.1rem;
+  line-height: 3.15rem;
+  border-radius: 1rem;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 15px 0px #00000040;
+}
+
+.continue-btn {
+  width: 27.9rem;
+  height: 4.614rem;
+  font-size: 2.1rem;
+  line-height: 3.15rem;
+  border-radius: 1rem;
+  background-color: #60b84b;
+  color: #fff;
+  border: none;
+  outline: none;
+}

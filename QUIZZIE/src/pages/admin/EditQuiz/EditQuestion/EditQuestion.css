@@ -1,0 +1,224 @@
+.create-quiz-question-card {
+  display: grid;
+  grid-template-rows: 0fr 0fr 1fr;
+  gap: 1rem;
+}
+
+/* Question text input */
+.question-text-input {
+  width: 67.3rem;
+  height: 5rem;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  background-color: #ffffff;
+  padding: 2rem;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 3rem;
+  color: #9f9f9f;
+  outline: none;
+}
+
+.question-text-input::placeholder {
+  color: #9f9f9f;
+}
+
+/* Option Type */
+
+.option-type-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1.5fr 2fr;
+  gap: 1rem;
+}
+
+.option-type-radio-btn-text-div {
+  display: grid;
+  grid-template-columns: auto 6fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.option-type-text {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 3rem;
+  height: 100%;
+  color: #9f9f9f;
+  display: flex;
+  align-items: center;
+}
+
+.option-type-radio-btn {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+/* options and timer */
+
+.options-and-timer-grid {
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  gap: 3.1rem;
+}
+
+/* Options  */
+
+.options-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr ;
+  gap: 2rem;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 2.3rem;
+  align-items: center;
+  justify-content: left;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 2rem;
+  align-self: start;
+}
+
+.option-radio-btn {
+  height: 100%;
+  width: 100%;
+  opacity: 0.01;
+  z-index: 999;
+}
+
+.option-input::placeholder{
+  color: #9f9f9f;
+}
+
+.option-input,.quiz-option-btn {
+  width: 25.6rem;
+  height: 5rem;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0px 0px 2.5rem 0px #00000026;
+  background-color: #ffffff;
+  outline: none;
+  padding: 0 1rem;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 3rem;
+  color: #9f9f9f;
+ 
+}
+
+.option-first-input-short {
+  width: 18.2rem;
+}
+
+.quiz-option-btn-div{
+  justify-self: left;
+}
+
+
+.option-radio-btn-outer-circle {
+  height: 2rem;
+  width: 2rem;
+  border: 0.25rem solid #d9d9d9;
+  border-radius: 50%;
+  position: relative;
+}
+
+.option-radio-btn-inner-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 50%;
+  background-color: #60b84b;
+}
+
+.option-radio-btn:checked,
+.option-correct::placeholder,
+.option-correct {
+  color: #fff;
+  background-color: #60b84b;
+}
+
+ 
+
+.option-delete-btn {
+  border: none;
+  background-color: transparent;
+}
+
+/* Timer */
+
+.timer-grid {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 1rem;
+}
+
+.timer-text {
+  align-self: end;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 3rem;
+  text-align: center;
+  color: #9f9f9f;
+}
+
+.timer-time-grid-div {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.timer-time-radio-btn-div {
+  float: left;
+  width: 9.5rem;
+  height: 3.4rem;
+  position: relative;
+  text-align: center;
+}
+
+.timer-time-radio-btn {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  opacity: 0.1;
+}
+
+.timer-time-radio-btn-div label,
+.timer-time-radio-btn-div input {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  line-height: 1.6rem;
+  font-weight: 500;
+  color: #9f9f9f;
+}
+
+.timer-time-radio-btn-div .timer-time-radio-btn {
+  opacity: 0.01;
+  z-index: 100;
+}
+
+.timer-time-radio-btn-div .timer-time-radio-btn + label {
+  box-shadow: 0 0 1.5rem 0 #00000026;
+}
+
+.timer-time-radio-btn-div .timer-time-radio-btn:checked + label {
+  background-color: #d60000;
+  color: #fff;
+}

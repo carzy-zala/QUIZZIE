@@ -1,0 +1,39 @@
+.login-main-div {
+  display: grid;
+  grid-template-columns: 1fr 1.52fr;
+  gap: 3.1rem;
+  align-items: center;
+}
+
+.login-label {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 3rem;
+  text-align: right;
+}
+
+.login-input {
+  border: none;
+  outline: none;
+  width: 38.8rem;
+  border-radius: 1rem 1rem 0 0;
+  background-color: #f4f4f4;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.8rem;
+  padding: 1rem;
+}
+
+.login-btn {
+  border: none;
+  width: 27.4rem;
+  height: 3.8rem;
+  display: block;
+  border-radius: 0.8rem;
+  background-color: #a9bcff;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 3rem;
+  place-self: center;
+  grid-column: 1 / span 2;
+}

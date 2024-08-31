@@ -1,0 +1,115 @@
+.quiz-analytics-main-div {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 7rem;
+}
+
+.quiz-analytic-header {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+}
+
+.quiz-analytic-quiz-title {
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 6rem;
+  color: #5076ff;
+}
+
+.quiz-analytic-quiz-details-div {
+  justify-self: right;
+}
+
+.quiz-analytic-quiz-detail {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 2.25rem;
+  color: #ff5d01;
+}
+
+/* For question */
+.quiz-analytic-questions {
+  display: grid;
+  grid-template-rows: auto auto auto auto auto;
+  gap: 3.5rem;
+}
+
+.quiz-analytic-question-main {
+  width: 83rem;
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 4.5rem;
+}
+
+.quiz-analytic-question-main-div {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 2rem;
+}
+
+.quiz-analytic-question-text {
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 4.5rem;
+  color: #000;
+  text-transform: capitalize;
+}
+
+.quiz-analytic-question-detail-card-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 3rem;
+}
+
+.quiz-analytic-question-detail-card {
+  height: 8.9rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+}
+
+.quiz-analytic-question-detail-number {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 4.5rem;
+  justify-self: center;
+  align-self: center;
+}
+
+.span-number {
+  grid-column: 1 / span 2;
+}
+
+.quiz-analytic-question-detail-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 2.1rem;
+  justify-self: center;
+}
+
+hr {
+  border: 0.2rem solid #d7d7d7;
+  border-radius: 1rem;
+}
+
+/* Poll questions */
+.quiz-analytic-question-detail-card-grid-poll {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 2rem;
+}
+
+.vertical-center{
+    align-self: center;
+    justify-self: start;
+}
+
+.span-row{
+    grid-row: 1/span 2;
+    gap: 1.5rem;
+}
+
+.horizontal-right{
+    justify-self: end;
+}

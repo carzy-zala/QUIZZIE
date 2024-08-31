@@ -1,0 +1,9 @@
+.admin-layout {
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+}
+
+.sidebar-div {
+  width: 19.3rem;
+  height: 100vh;
+}

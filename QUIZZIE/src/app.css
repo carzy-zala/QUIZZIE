@@ -1,0 +1,81 @@
+/* .container {
+  margin: 5.8rem 0 5.8rem ;
+  margin-top: 4.5rem;
+   padding-top: 2rem; 
+}
+
+.container {
+  margin: 5.8rem 0 5.8rem ;
+  margin-top: 10rem;
+  padding-top: 2rem;
+}
+
+.main-div {
+  box-shadow: 0px 0px 30px 0px #00000026;
+  box-sizing: border-box;
+  width: 106.6rem;
+  height: 54rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+  border-radius: 1.5rem;
+}
+
+.radioBtn {
+  appearance: none;
+  padding: 1rem;
+  border: 1px solid black;
+} */
+
+/* .radioBtn:checked;
+.radioBtn:checked + label {
+  background-color: antiquewhite;
+}
+
+
+.left-text-class {
+  font-size: 3rem;
+  text-align: center;
+  grid-column: 1 / span 2;
+}
+
+.rightTextClass {
+  font-size: 3rem;
+}
+
+.bottom-text-class {
+  font-size: 1.4rem;
+  text-transform: capitalize;
+}
+
+.parentDiv {
+  background-color: #f2f2f2;
+  border-radius: 1rem;
+  height: 8.9rem;
+  width: 24.5rem;
+  margin: 100px;
+  padding: 1.5rem 4rem;
+} */
+
+/* float */
+.anotherelementbehind {
+  height: 200px;
+  width: 200px;
+  background-color: yellow;
+  top: 50px;
+  left: 50px;
+  z-index: 0;
+  position: absolute;
+}
+
+.anotherelementbehind ::before{
+  background-color: black;
+}
+
+.elementtomovefront {
+  height:100px;
+  width:100px;
+  background-color:red;
+  margin:100px;
+  z-index: 1;
+  position: relative;
+};

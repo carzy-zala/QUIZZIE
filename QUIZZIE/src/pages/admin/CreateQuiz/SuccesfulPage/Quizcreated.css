@@ -1,0 +1,63 @@
+.quiz-created-success-main {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  width: 84.5rem;
+  height: 48rem;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.quiz-created-success-close-btn-div {
+  justify-self: end;
+  padding: 1rem;
+}
+
+.quiz-created-success-greeting {
+  display: grid;
+  grid-template-rows: 0fr 0fr 0fr;
+  gap: 4rem;
+  justify-content: center;
+}
+
+.quiz-created-success-text {
+  font-size: 3.9rem;
+  font-weight: 600;
+  line-height: 5.85rem;
+  text-align: center;
+}
+
+.quiz-created-success-link {
+  width: 675px;
+  height: 60px;
+  border-radius: 1rem;
+  background-color: #ededed;
+  border: none;
+  outline: none;
+  padding: 2rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 3.75rem;
+  text-align: left;
+}
+
+.quiz-created-success-share-btn {
+  width: 27.9rem;
+  height: 4.6rem;
+  border-radius: 1rem;
+  background-color: #60b84b;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 2.1rem;
+  font-weight: 600;
+  line-height: 3.15rem;
+}
+
+.quiz-created-success-share-btn:hover {
+  background-color: #4b9937;
+}

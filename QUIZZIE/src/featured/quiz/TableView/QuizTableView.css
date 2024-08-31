@@ -1,0 +1,118 @@
+.quiz-analysis-heading {
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 7.5rem;
+  color: #5076ff;
+  text-align: center;
+  padding-bottom: 3rem ;
+}
+
+.quiz-table-blue-row {
+  background-color: #b3c4ff;
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+  width: 92.9rem;
+}
+
+th {
+  background-color: #5076ff;
+  color: #fff;
+}
+
+th,
+td,
+td > a {
+  font-size: 1.6rem;
+  line-height: 4rem;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+td:first-child,
+th:first-child {
+  border-radius: 1rem 0 0 1rem;
+}
+
+td:last-child,
+th:last-child {
+  border-radius: 0 1rem 1rem 0;
+}
+
+button {
+  border: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+/* Delete pop up */
+
+.pop-up-div {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000000cf;
+  width: 100%;
+}
+
+.delete-pop-up {
+  width: 84.5rem;
+  height: 29.9rem;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  display: grid;
+  align-items: center;
+  grid-template-rows: auto auto;
+}
+
+.delete-pop-up-text {
+  font-size: 3.9rem;
+  font-weight: 600;
+  line-height: 5.85rem;
+  text-align: center;
+}
+
+.delete-pop-up-btns {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.delete-pop-up-btn {
+  width: 27.9rem;
+  height: 4.3rem;
+  border-radius: 1rem;
+}
+
+.delete-pop-up-white-btn {
+  width: 27.9rem;
+  height: 4.3rem;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 1.5rem 0px #00000040;
+  background-color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 2.7rem;
+  color: #474444;
+}
+
+.delete-pop-up-red-btn {
+  width: 27.9rem;
+  height: 4.3rem;
+  border-radius: 1rem;
+  background-color: #ff4b4b;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 2.7rem;
+  color: #ffffff;
+}

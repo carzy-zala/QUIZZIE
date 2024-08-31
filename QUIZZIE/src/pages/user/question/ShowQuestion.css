@@ -1,0 +1,177 @@
+
+
+.user-question-card {
+  height: 76vh;
+  width: 86%;
+  background-color: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0px 0px 30px 0px #00000026;
+
+  display: grid;
+  grid-template-rows: 1fr 4fr 20fr;
+  padding: 1rem 2rem;
+}
+
+/* Question detail */
+
+.user-question-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 1rem;
+}
+
+.user-question-number {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 6rem;
+}
+
+.digit {
+  display: inline-block;
+  color: #d60000;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 6rem;
+  width: 1ch;
+  text-align: center;
+}
+
+/* Question text */
+
+.user-question-text {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 6rem;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+/* Option form */
+.option-form {
+  display: grid;
+  grid-template-rows: 6fr 1fr;
+  row-gap: 4rem;
+  height: 100%;
+}
+
+.options-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.option-card {
+  float: left;
+  width: 32rem;
+  height: 11.2rem;
+  position: relative;
+  text-align: center;
+  justify-self: center;
+}
+
+.option-radio-btn {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: 500;
+  opacity: 0.01;
+  z-index: 100;
+}
+
+.option-card .option-radio-btn:checked + div {
+  outline: 0.5rem solid #5076ff;
+}
+
+.option-div {
+  background-color: #f0f0f0;
+  width: 32.4rem;
+  height: 15.9rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+
+.option-div-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 0 1.5rem 0 2rem;
+}
+
+.option-text-div {
+  background-color: #f0f0f0;
+  width: 32rem;
+  height: 11.2rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 0.75rem;
+}
+
+.option-text {
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 5.25rem;
+  text-transform: capitalize;
+}
+
+.option-text-img {
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 5.25rem;
+  text-transform: capitalize;
+}
+
+.option-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.option-img-div {
+  width: 13.6rem;
+  height: 12.1rem;
+  border-radius: 1rem;
+}
+
+.option-only-img-div {
+  width: 32.4rem;
+  height: 15.9rem;
+
+  /* border-radius: 0.5rem; */
+}
+
+.option-radio-btn:checked {
+  background-color: #d60000;
+}
+
+/* Option from btn */
+.option-btn-div {
+  justify-self: center;
+}
+
+.option-next-btn {
+  border: none;
+  outline: none;
+  background-color: #60b84b;
+  width: 32rem;
+  height: 5.6rem;
+  border-radius: 1rem;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 4.5rem;
+  color: #fff;
+}
+
+/* Toastify */
+.option-error {
+  font-size: 1.5rem;
+}

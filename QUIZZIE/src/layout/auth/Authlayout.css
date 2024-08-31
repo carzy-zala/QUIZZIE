@@ -1,0 +1,17 @@
+.auth-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
+.auth-layout-container {
+  width: 106rem;
+  height: 60rem;
+  border-radius: 1.5rem;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  gap:5rem;
+  padding: 4rem 4rem 2rem 0;
+}
