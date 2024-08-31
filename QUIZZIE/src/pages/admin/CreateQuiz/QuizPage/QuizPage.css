@@ -126,3 +126,7 @@
   border: none;
   outline: none;
 }
+
+.continue-btn:hover{
+  background-color: #42902f;
+}

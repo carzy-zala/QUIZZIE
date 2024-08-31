@@ -17,10 +17,11 @@ function SuccessPage() {
     const liveScore = await (async () =>
       await axiosGet(getScoreURL).then((response) => response.data))();
 
-    setScore(liveScore.score.score);
-    sessionStorage.setItem("score", liveScore.score.score);
-
-    await deleteThisUser();
+    if (liveScore) {
+      setScore(liveScore.score.score);
+      sessionStorage.setItem("score", liveScore.score.score);
+      await deleteThisUser();
+    }
   };
 
   const deleteThisUser = async () => {
