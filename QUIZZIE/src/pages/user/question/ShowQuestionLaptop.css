@@ -3,6 +3,8 @@
     display: grid;
     grid-template-rows: 1fr 1fr 10fr;
     padding: 1rem 2rem;
+    height: 51rem;
+    width: 111rem;
   }
 
   .user-question-text {
