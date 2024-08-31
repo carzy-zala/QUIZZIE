@@ -95,10 +95,6 @@ const QuizTableView = () => {
     <div>
       {allQuiz.quizs.length ? (
         <div>
-          {allQuiz.loading && (
-            <div className="quiz-analysis-heading"> Loading ....</div>
-          )}
-          {allQuiz.error && <div>Errro :{allQuiz.error}</div>}
           <h1 className="quiz-analysis-heading">Quiz Analysis</h1>
           <table>
             <thead>

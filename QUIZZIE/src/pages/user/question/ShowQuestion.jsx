@@ -3,12 +3,10 @@ import { OptionCard, Input, Button } from "../../../components";
 import "./ShowQuestion.css";
 import "./ShowQuestionMobile.css";
 import "./ShowQuestionLaptop.css";
-import { useFieldArray, useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
 import { apiRoutes } from "../../../services/apiRoutes";
 import { axiosPost } from "../../../services/axios.config";
 import { useNavigate } from "react-router-dom";
-import SuccessPage from "../SuccessPage/SuccessPage";
 
 function ShowQuestion({
   currentQuestionNo,
@@ -183,13 +181,14 @@ function ShowQuestion({
 
       <div className="user-question-text">{question}</div>
 
-      <div>
+      <div className="user-question-form-container">
         <form
           style={{ height: "100%" }}
           onSubmit={handleSubmit(handleQuestionSubmit)}
         >
           <div className="option-form">
-            {options.length > 0 && (
+            
+          {options.length > 0 && (
               <div className="options-div">
                 {options.length > 0 &&
                   options.map((option, index) => {
