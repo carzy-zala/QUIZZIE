@@ -2,15 +2,7 @@ import "./Question.css";
 import { Input } from "../../../../../components";
 import Options from "./Options/Options";
 
-const Question = ({
-  register,
-  questionIndex,
-  control,
-  watch,
-}) => {
- 
-
-
+const Question = ({ register, questionIndex, control, watch }) => {
   return (
     <div className="create-quiz-question-card">
       <div>
@@ -77,15 +69,17 @@ const Question = ({
       </div>
 
       <div className="options-and-timer-grid">
-        <Options 
-         control = {control}
-         register={register}
-         watch={watch}
-         questionIndex={questionIndex}
-        
+        <Options
+          control={control}
+          register={register}
+          watch={watch}
+          questionIndex={questionIndex}
         />
 
-        <div className="timer-grid">
+        <div
+          className="timer-grid"
+          key={`questions.${questionIndex}.timer`}
+        >
           <div className="timer-text">
             <label>Timer</label>
           </div>

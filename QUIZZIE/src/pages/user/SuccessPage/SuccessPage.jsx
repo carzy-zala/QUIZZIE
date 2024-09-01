@@ -37,7 +37,6 @@ function SuccessPage() {
 
   useEffect(() => {
     if (quizType === "qa" && !sessionStorage.getItem("score")) {
-      sessionStorage.setItem("score", 0);
       getScore();
     }
   }, []);
