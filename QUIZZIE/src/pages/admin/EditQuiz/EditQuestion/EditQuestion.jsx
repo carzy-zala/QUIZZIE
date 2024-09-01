@@ -11,10 +11,12 @@ const EditQuestion = ({
   quizType,
   watch,
 }) => {
-  const { fields: optionsFeild } = useFieldArray({
+  const { fields: optionsField } = useFieldArray({
     control,
     name: `questions.${questionIndex}.options`,
   });
+
+  
 
   return (
     <div className="create-quiz-question-card">
@@ -88,7 +90,7 @@ const EditQuestion = ({
 
       <div className="options-and-timer-grid">
         <div className="options-grid">
-          {optionsFeild.map((_, index) => {
+          {optionsField.map((_, index) => {
             return (
               <div
                 key={`questions${questionIndex}.options${index}`}

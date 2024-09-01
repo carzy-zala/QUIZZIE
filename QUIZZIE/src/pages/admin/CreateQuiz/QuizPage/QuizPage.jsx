@@ -137,7 +137,6 @@ function QuizPage({ cancelHandle }) {
       apiRoutes.CREATE_QUIZ
     }`;
 
-    console.log(data);
 
     const response = await (async () => axiosPost(createQuizURL, { data }))();
 
@@ -145,6 +144,9 @@ function QuizPage({ cancelHandle }) {
   };
 
   const quizSubmitData = async (data) => {
+
+    
+
     const { quizType } = data;
 
     let actualData;

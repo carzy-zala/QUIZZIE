@@ -17,6 +17,7 @@ const QuestionForm = ({ register, control, cancelHandle, watch }) => {
       questionText: "",
       optionType: "text",
       timer: "off",
+      correctAns: "",
       options: [
         {
           text: "",
@@ -29,7 +30,6 @@ const QuestionForm = ({ register, control, cancelHandle, watch }) => {
           isCorrect: false,
         },
       ],
-      correctAns,
     });
 
     setQuestionIndex((questionIndex) => questionIndex + 1);
