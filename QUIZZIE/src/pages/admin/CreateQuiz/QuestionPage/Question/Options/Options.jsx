@@ -34,7 +34,8 @@ function Options({ control, register, watch, questionIndex }) {
   return (
     <div className="options-grid">
       {fields.map((option, index) => {
-        {console.log(option,fields,index);
+        {
+          console.log(option, fields, index);
         }
         return (
           <div key={option._id} className="option-grid">
@@ -65,6 +66,7 @@ function Options({ control, register, watch, questionIndex }) {
                 "textImage" ||
                 watch(`questions.${questionIndex}.optionType`) === "text") && (
                 <Input
+                  key={`questions.${questionIndex}.options.${index}.text`}
                   className={`option-input ${
                     watch(`questions.${questionIndex}.optionType`) ===
                       "textImage" && "option-first-input-short"
@@ -86,6 +88,7 @@ function Options({ control, register, watch, questionIndex }) {
                 "textImage" ||
                 watch(`questions.${questionIndex}.optionType`) === "image") && (
                 <Input
+                  key={`questions.${questionIndex}.options.${index}.imageUrl`}
                   className={`option-input ${
                     watch(`questions.${questionIndex}.correctOption`) ===
                       `${index}` && "option-correct"
