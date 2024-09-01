@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { axiosGet } from "../../../services/axios.config";
 import ShowQuestion from "../question/ShowQuestion";
@@ -50,7 +50,7 @@ function ShowQuiz() {
   }, []);
 
   return (
-    <div>
+    <Fragment>
       {!!quiz && (
         <ShowQuestion
           currentQuestionNo={currentQuestionNo}
@@ -65,7 +65,7 @@ function ShowQuiz() {
           quizType={quiz.quizType}
         />
       )}
-    </div>
+    </Fragment>
   );
 }
 
