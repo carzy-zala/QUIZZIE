@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { apiRoutes } from "../../../services/apiRoutes";
 import { axiosPost } from "../../../services/axios.config";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function ShowQuestion({
   currentQuestionNo,
@@ -40,9 +41,6 @@ function ShowQuestion({
     }, 1000);
   };
 
-  console.log(sessionStorage.getItem("score"));
-  
-
   const executeNext = (time) => {
     const execute = async () => {
       if (quizType === "qa") {
@@ -68,7 +66,6 @@ function ShowQuestion({
     if (timer !== "off") {
       const sec = parseInt(timer);
       countDown(sec);
-      
     }
   }, [currentQuestionNo]);
 
@@ -90,24 +87,27 @@ function ShowQuestion({
   const handleQuestionSubmit = async (data) => {
     const index = parseInt(data["isCorrect"]);
 
-    if (quizType === "qa") {
-      if (index + 1) {
-        const isCorrect = options[index].isCorrect;
-        await updateRightWrong(isCorrect);
+    if (!index) toast.error("Please select one option");
+    else {
+      if (quizType === "qa") {
+        if (index + 1) {
+          const isCorrect = options[index].isCorrect;
+          await updateRightWrong(isCorrect);
+        } else {
+          await updateRightWrong(false);
+        }
       } else {
-        await updateRightWrong(false);
+        await updatePollAnalytics(index);
       }
-    } else {
-      await updatePollAnalytics(index);
-    }
 
-    if (totalQuestions !== currentQuestionNo + 1) {
-      reset();
-      setCurrentQuestionNo(currentQuestionNo + 1);
-    }
+      if (totalQuestions !== currentQuestionNo + 1) {
+        reset();
+        setCurrentQuestionNo(currentQuestionNo + 1);
+      }
 
-    if (totalQuestions === currentQuestionNo + 1) {
-      navigate(`/user/success/${totalQuestions}/${quizType}`);
+      if (totalQuestions === currentQuestionNo + 1) {
+        navigate(`/user/success/${totalQuestions}/${quizType}`);
+      }
     }
   };
 
@@ -191,8 +191,7 @@ function ShowQuestion({
           onSubmit={handleSubmit(handleQuestionSubmit)}
         >
           <div className="option-form">
-            
-          {options.length > 0 && (
+            {options.length > 0 && (
               <div className="options-div">
                 {options.length > 0 &&
                   options.map((option, index) => {
