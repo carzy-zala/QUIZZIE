@@ -1,7 +1,7 @@
 import { useFieldArray, useForm } from "react-hook-form";
 import "./EditQuestion.css";
 import { Button, Input } from "../../../../components";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const EditQuestion = ({
   register,
@@ -16,11 +16,9 @@ const EditQuestion = ({
     name: `questions.${questionIndex}.options`,
   });
 
-  let options;
+  const [options, setOptions] = useState(watch(`questions.${questionIndex}.options`) || []);
 
-  useEffect(() => {
-    options = watch(`questions.${questionIndex}.options`);
-  }, [questionIndex]);
+  
 
   return (
     <div className="create-quiz-question-card">

@@ -20,6 +20,7 @@ function EditQuiz({ setIsEdit, quizId, quizType }) {
   });
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChangeQuestion = (index) => {
     setCurrentQuestion(index);
@@ -62,12 +63,12 @@ function EditQuiz({ setIsEdit, quizId, quizType }) {
   };
 
   useEffect(() => {
-    handleQuizQuestion();
+    (async () => await handleQuizQuestion())();
   }, []);
 
   return (
-    <div className="edit-main-div" style={{ backgroundColor: "#fff" }}>
-      <div className="edit-form-div-grid">
+     <div className="edit-main-div" style={{ backgroundColor: "#fff" }}>
+      {!!questionsFeild.length && <div className="edit-form-div-grid">
         <div className="edit-form-header-grid">
           <div className={"edit-form-question-number-grid"}>
             {questionsFeild.map((_, index) => {
@@ -92,14 +93,16 @@ function EditQuiz({ setIsEdit, quizId, quizType }) {
         <form onSubmit={handleSubmit(handleUpdateQuestion)}>
           <div className="edit-quiz-form-grid">
             <div>
-              <EditQuestion
-                register={register}
-                control={control}
-                watch={watch}
-                questionIndex={currentQuestion}
-                questionsFeild={questionsFeild}
-                quizType={quizType}
-              />
+              {
+                <EditQuestion
+                  register={register}
+                  control={control}
+                  watch={watch}
+                  questionIndex={currentQuestion}
+                  questionsFeild={questionsFeild}
+                  quizType={quizType}
+                />
+              }
             </div>
             <div className="edit-btns-grid">
               <div>
@@ -121,7 +124,7 @@ function EditQuiz({ setIsEdit, quizId, quizType }) {
             </div>
           </div>
         </form>
-      </div>
+      </div>}
     </div>
   );
 }
