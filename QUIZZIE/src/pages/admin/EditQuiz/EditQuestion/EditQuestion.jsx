@@ -16,9 +16,11 @@ const EditQuestion = ({
     name: `questions.${questionIndex}.options`,
   });
 
-  const options = watch(`questions.${questionIndex}.options`);
-  
-  
+  let options;
+
+  useEffect(() => {
+    options = watch(`questions.${questionIndex}.options`);
+  }, [questionIndex]);
 
   return (
     <div className="create-quiz-question-card">
