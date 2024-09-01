@@ -8,7 +8,7 @@ import { axiosGet, axiosPatch } from "../../../services/axios.config";
 import { toast } from "react-toastify";
 
 function EditQuiz({ setIsEdit, quizId, quizType }) {
-  const { register, control, watch, reset, handleSubmit } = useForm({
+  const { register, control, watch, reset, handleSubmit ,getValues} = useForm({
     defaultValues: {
       questions: [],
     },
@@ -101,6 +101,7 @@ function EditQuiz({ setIsEdit, quizId, quizType }) {
                   questionIndex={currentQuestion}
                   questionsFeild={questionsFeild}
                   quizType={quizType}
+                  getValues={getValues}
                 />
               }
             </div>

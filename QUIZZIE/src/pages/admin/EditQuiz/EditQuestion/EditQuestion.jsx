@@ -10,15 +10,13 @@ const EditQuestion = ({
   control,
   quizType,
   watch,
+  getValues,
 }) => {
   const { fields: optionsField } = useFieldArray({
     control,
     name: `questions.${questionIndex}.options`,
   });
-
-  const [options, setOptions] = useState(watch(`questions.${questionIndex}.options`) || []);
-
-  
+  const options = watch(`questions.${questionIndex}.options`) || [];
 
   return (
     <div className="create-quiz-question-card">
@@ -125,6 +123,7 @@ const EditQuestion = ({
                     watch(`questions.${questionIndex}.optionType`) ===
                       "text") && (
                     <Input
+                      key={`questions.${questionIndex}.options.${index}.text`}
                       className={`option-input ${
                         watch(`questions.${questionIndex}.optionType`) ===
                           "textImage" && "option-first-input-short"
@@ -151,6 +150,7 @@ const EditQuestion = ({
                     watch(`questions.${questionIndex}.optionType`) ===
                       "image") && (
                     <Input
+                      key={`questions.${questionIndex}.options.${index}.imageUrl`}
                       className={`option-input ${
                         watch(
                           `questions.${questionIndex}.options.${index}.isCorrect`
