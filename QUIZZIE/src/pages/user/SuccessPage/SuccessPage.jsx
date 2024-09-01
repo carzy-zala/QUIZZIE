@@ -7,7 +7,7 @@ import setUserToken from "../../../utils/setGuestUserToken";
 
 function SuccessPage() {
   const { totalQuestions, quizType } = useParams();
-  const [score, setScore] = useState(sessionStorage.getItem("score"));
+  const [score, setScore] = useState(sessionStorage.getItem("score") || 0);
 
   const getScore = async () => {
     const getScoreURL = `${import.meta.env.VITE_HOST_API_KEY}${
@@ -20,7 +20,6 @@ function SuccessPage() {
     if (liveScore) {
       setScore(liveScore.score.score);
       sessionStorage.setItem("score", liveScore.score.score);
-      await deleteThisUser();
     }
   };
 
@@ -39,6 +38,10 @@ function SuccessPage() {
     if (quizType === "qa" && !sessionStorage.getItem("score")) {
       getScore();
     }
+
+    return () => {
+      (async () => await deleteThisUser())();
+    };
   }, []);
 
   return quizType !== "poll" ? (
@@ -49,9 +52,7 @@ function SuccessPage() {
       </div>
       <p style={{ alignSelf: "start" }} className="qa-success-text">
         Your Score is
-        <span className="score">{` 0${
-          score ? score : 0
-        }/0${totalQuestions}`}</span>
+        <span className="score">{` 0${score}/0${totalQuestions}`}</span>
       </p>
     </div>
   ) : (
