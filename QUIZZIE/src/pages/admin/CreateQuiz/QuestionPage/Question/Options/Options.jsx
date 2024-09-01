@@ -12,10 +12,12 @@ function Options({ control, register, watch, questionIndex }) {
 
   const optionType = watch(`questions.${questionIndex}.optionType`);
   const previousQuestionIndex = useRef(questionIndex);
+  const options = watch(`questions.${questionIndex}.options`);
+
 
   useEffect(() => {
     if (previousQuestionIndex.current === questionIndex) {
-      fields.forEach((option, index) => {
+      options.forEach((option, index) => {
         if (optionType === "text") {
           update(index, { ...option, imageUrl: "" });
         } else if (optionType === "image") {
@@ -27,18 +29,15 @@ function Options({ control, register, watch, questionIndex }) {
     previousQuestionIndex.current = questionIndex;
   }, [optionType, questionIndex]);
 
-  useEffect(() => {
-    console.log(watch(`questions`));
-  }, [watch("questions")]);
 
   return (
     <div className="options-grid">
-      {fields.map((option, index) => {
-        {
-          console.log(option, fields, index);
-        }
+      {options.map((option, index) => {
         return (
-          <div key={option._id} className="option-grid">
+          <div
+            key={`questions.${questionIndex}.options.${index}`}
+            className="option-grid"
+          >
             {watch("quizType") === "qa" && (
               <div className="option-radio-btn-outer-circle">
                 <div
@@ -105,14 +104,14 @@ function Options({ control, register, watch, questionIndex }) {
               <Button
                 className="option-delete-btn"
                 children={<img src="/images/delete.png" />}
-                onClick={() => remove(questionIndex, index)}
+                onClick={() => remove(index)}
               />
             )}
           </div>
         );
       })}
 
-      {fields.length < 4 && (
+      {options.length < 4 && (
         <div
           style={{
             paddingLeft: watch("quizType") === "qa" ? "4rem" : "0rem",
@@ -123,27 +122,14 @@ function Options({ control, register, watch, questionIndex }) {
             children="Add Option"
             className="quiz-option-btn"
             onClick={() => {
-              console.log(
-                questionIndex,
-                watch("questions"),
-                watch(`questions.${questionIndex}`)
+              append(
+                {
+                  text: "",
+                  imageUrl: "",
+                  isCorrect: false,
+                },
+                `questions.${questionIndex}.options`
               );
-
-              console.log("form ", watch());
-
-              append({
-                text: "",
-                imageUrl: "",
-                isCorrect: false,
-              });
-
-              console.log(
-                questionIndex,
-                watch("questions"),
-                watch(`questions.${questionIndex}`)
-              );
-
-              console.log("form ", watch());
             }}
           />
         </div>

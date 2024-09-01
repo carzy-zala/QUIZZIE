@@ -40,6 +40,9 @@ function ShowQuestion({
     }, 1000);
   };
 
+  console.log(sessionStorage.getItem("score"));
+  
+
   const executeNext = (time) => {
     const execute = async () => {
       if (quizType === "qa") {

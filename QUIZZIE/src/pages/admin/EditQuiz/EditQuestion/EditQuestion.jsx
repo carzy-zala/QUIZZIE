@@ -16,6 +16,8 @@ const EditQuestion = ({
     name: `questions.${questionIndex}.options`,
   });
 
+  const options = watch(`questions.${questionIndex}.options`);
+  
   
 
   return (
@@ -90,7 +92,7 @@ const EditQuestion = ({
 
       <div className="options-and-timer-grid">
         <div className="options-grid">
-          {optionsField.map((_, index) => {
+          {options.map((_, index) => {
             return (
               <div
                 key={`questions${questionIndex}.options${index}`}
