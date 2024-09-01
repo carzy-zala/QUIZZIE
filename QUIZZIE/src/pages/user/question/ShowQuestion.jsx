@@ -87,7 +87,7 @@ function ShowQuestion({
   const handleQuestionSubmit = async (data) => {
     const index = parseInt(data["isCorrect"]);
 
-    if (!index) toast.error("Please select one option");
+    if (!index && index !== 0) toast.error("Please select one option");
     else {
       if (quizType === "qa") {
         if (index + 1) {
