@@ -16,3 +16,9 @@
   gap: 5rem;
   padding: 2rem 0 2rem 0;
 }
+
+@media screen and (min-width: 1024px) {
+  .auth-layout-container {
+    width: 90rem;
+  }
+}

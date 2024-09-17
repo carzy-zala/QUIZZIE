@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { Input, Button } from "../../../components";
 import { useForm } from "react-hook-form";
@@ -14,6 +14,7 @@ import axios from "axios";
 function Login() {
   const navigator = useNavigate();
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
 
   const admin = useSelector((store) => store.admin);
   const getIntialValue = () => ({
@@ -26,24 +27,39 @@ function Login() {
   });
 
   const handleLogin = async (data) => {
-    const { email, password } = data;
+    if (!isLoading) {
+      setIsLoading(true);
 
-    const responseData = await axiosPost(apiRoutes.LOGIN_USER, {
-      email,
-      password,
-    });
+      const { email, password } = data;
 
-    if (responseData.success) {
-      dispatch(login());
-      await setToken(
-        responseData.data.accessToken,
-        responseData.data.refreshToken
-      );
-      sessionStorage.setItem("accessToken", responseData.data.accessToken);
-      toast.success(responseData.message);
-      navigator("/admin/dashboard");
-    } else {
-      toast.error(responseData.message);
+      if (
+        !email ||
+        !password ||
+        email.trim() === "" ||
+        password.trim() === ""
+      ) {
+        toast.error("Email or password can't be empty ! ");
+      } else {
+        const responseData = await axiosPost(apiRoutes.LOGIN_USER, {
+          email,
+          password,
+        });
+
+        if (responseData.success) {
+          dispatch(login());
+          await setToken(
+            responseData.data.accessToken,
+            responseData.data.refreshToken
+          );
+          sessionStorage.setItem("accessToken", responseData.data.accessToken);
+          toast.success(responseData.message);
+          navigator("/admin/dashboard");
+        } else {
+          toast.error(responseData.message);
+        }
+      }
+
+      setIsLoading(false);
     }
   };
 
@@ -64,7 +80,11 @@ function Login() {
           className="login-input"
           {...register("password")}
         />
-        <Button type="submit" children="Log In" className="login-btn" />
+        <Button
+          type="submit"
+          children={isLoading ? <div className="loader"></div> : "Log In"}
+          className="login-btn"
+        />
       </div>
     </form>
   );

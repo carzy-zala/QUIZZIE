@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Input, Button, Logo } from "../../../components";
 import { useForm } from "react-hook-form";
 import "./SignUp.css";
@@ -12,6 +12,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 function SignUp() {
   const dispatch = useDispatch();
   const navigator = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -27,25 +28,31 @@ function SignUp() {
     for (let error in errors) {
       setFocus(error, false);
       setValue(error, "");
+      toast.error(errors[error].message);
     }
   };
 
   const signupUser = async (data) => {
-    const { fullName, email, password } = data;
+    if (!isLoading) {
+      setIsLoading(true);
+      const { fullName, email, password } = data;
 
-    const responseData = await axiosPost(apiRoutes.REGISTER_USER, {
-      fullName,
-      email,
-      password,
-    });
+      const responseData = await axiosPost(apiRoutes.REGISTER_USER, {
+        fullName,
+        email,
+        password,
+      });
 
-    if (responseData.success) {
-      dispatch(signup({ email }));
-      toast.success(responseData.message);
-      reset();
-      navigator("/login");
-    } else {
-      toast.error(responseData.message);
+      if (responseData.success) {
+        dispatch(signup({ email }));
+        toast.success(responseData.message);
+        reset();
+        navigator("/login");
+      } else {
+        toast.error(responseData.message);
+      }
+
+      setIsLoading(false);
     }
   };
 
@@ -89,9 +96,26 @@ function SignUp() {
           className={`signup-input ${errors.password && `signup-input-error`}`}
           {...register("password", {
             required: "Password can't be empty",
-            pattern: {
-              value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
-              message: "Weak password",
+            validate: (value) => {
+              const hasUpperCase = /[A-Z]/.test(value);
+              const hasLowerCase = /[a-z]/.test(value);
+              const hasNumber = /\d/.test(value);
+              const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+              const minLength = value.length >= 8;
+
+              if (!minLength) {
+                return "Password must be at least 8 characters long";
+              } else if (!hasUpperCase) {
+                return "Password must contain at least one uppercase letter";
+              } else if (!hasLowerCase) {
+                return "Password must contain at least one lowercase letter";
+              } else if (!hasNumber) {
+                return "Password must contain at least one number";
+              } else if (!hasSpecialChar) {
+                return "Password must contain at least one special character";
+              }
+
+              return true; // Valid password
             },
           })}
           placeholder={errors.password && errors.password.message}
@@ -112,7 +136,12 @@ function SignUp() {
           placeholder={errors.cfpass && errors.cfpass.message}
         />
 
-        <Button type="submit" className="signup-btn" children="Sign-Up" />
+        <Button
+          disable={true}
+          type="submit"
+          className="signup-btn"
+          children={isLoading ? <div class="loader"></div> : "Sign-Up"}
+        />
       </div>
     </form>
   );

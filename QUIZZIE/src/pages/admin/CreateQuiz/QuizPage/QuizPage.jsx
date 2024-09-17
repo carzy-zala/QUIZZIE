@@ -92,6 +92,7 @@ function QuizPage({ cancelHandle }) {
   const [isContinueClick, setIsContinueClick] = useState(false);
   const [isQuizCardShow, setIsQuizCardShow] = useState(true);
   const [isQuizCreated, setIsQuizCreated] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   //#region for quiz creation
 
@@ -103,11 +104,6 @@ function QuizPage({ cancelHandle }) {
     const { questions } = data;
     questions.map((question, index) => {
       const correctAns = parseInt(question.correctOption);
-      if (correctAns !== 0 && !correctAns) {
-        toast.error(
-          "Please make sure correct option is selected in all questions ."
-        );
-      }
 
       question.options[correctAns].isCorrect = true;
       return question;
@@ -137,35 +133,107 @@ function QuizPage({ cancelHandle }) {
       apiRoutes.CREATE_QUIZ
     }`;
 
-
     const response = await (async () => axiosPost(createQuizURL, { data }))();
 
     return response;
   };
 
-  const quizSubmitData = async (data) => {
+  const isValidData = (data) => {
+    const { questions, quizType } = data;
 
-    
+    for (let i = 0; i < questions.length; i++) {
+      const { questionText, options, optionType } = questions[i];
 
-    const { quizType } = data;
+      if (!questionText || questionText.trim() === "") {
+        toast.error(
+          `Please make sure you enter questiontext in ${i + 1} question`
+        );
+        return false;
+      }
 
-    let actualData;
-    if (quizType === "qa") {
-      actualData = cleanQAData(data);
-    } else {
-      actualData = cleanPollData(data);
+      for (let index = 0; index < options.length; index++) {
+        const element = options[index];
+
+        if (optionType === "text") {
+          if (!element.text || element.text.trim() === "") {
+            toast.error(
+              `Please add text in option ${index + 1} of question ${i + 1}`
+            );
+            return false;
+          }
+        } else {
+          if (optionType === "image") {
+            if (!element.imageUrl || element.imageUrl.trim() === "") {
+              toast.error(
+                `Please add imageurl in option ${index + 1} of question ${
+                  i + 1
+                }`
+              );
+              return false;
+            }
+          } else {
+            if (
+              !element.text ||
+              element.text.trim() === "" ||
+              !element.imageUrl ||
+              element.imageUrl.trim() === ""
+            ) {
+              toast.error(
+                `Please make sure you add text and imageurl in option ${
+                  index + 1
+                } of question ${i + 1}`
+              );
+              return false;
+            }
+          }
+        }
+      }
+
+      if (quizType === "qa") {
+        const {correctOption} = questions[i]
+        
+        if (correctOption !== 0 && !correctOption) {
+          toast.error(
+            `Please make sure correct option is selected in ${i+1} question.`
+          );
+          return false;
+        }
+      }
     }
 
-    const response = await createQuiz(actualData);
+    return true;
+  };
 
-    if (response.success) {
-      setIsContinueClick(false);
-      setIsQuizCreated(true);
-      setQuizURL(response.data.quizURL);
+  const quizSubmitData = async (data) => {
+    if (!isLoading) {
+      setIsLoading(true);
 
-      toast.success(response.message);
-    } else {
-      toast.error(response.message);
+      const { quizType } = data;
+
+      const isValidateData = isValidData(data);
+
+      if (isValidateData) {
+        let actualData;
+        if (quizType === "qa") {
+          actualData = cleanQAData(data);
+        } else {
+          actualData = cleanPollData(data);
+        }
+
+        const response = await createQuiz(actualData);
+
+        if (response.success) {
+          setIsContinueClick(false);
+          setIsQuizCreated(true);
+          setQuizURL(response.data.quizURL);
+
+          toast.success(response.message);
+        } else {
+          toast.error(response.message);
+        }
+      }
+
+      setIsLoading(false);
     }
   };
 
@@ -198,6 +266,7 @@ function QuizPage({ cancelHandle }) {
     } else {
       toast.error(isValid.message);
     }
+    setIsLoading(false);
   };
 
   const handleContinue = () => {
@@ -209,7 +278,10 @@ function QuizPage({ cancelHandle }) {
       if (watch("quizType") === "") {
         toast.error("Please select quiz type !");
       } else {
-        validator();
+        if (!isLoading) {
+          setIsLoading(true);
+          validator();
+        }
       }
     }
   };
@@ -271,7 +343,9 @@ function QuizPage({ cancelHandle }) {
                   />
                   <Button
                     onClick={handleContinue}
-                    children="Continue"
+                    children={
+                      isLoading ? <div className="loader"></div> : "Continue"
+                    }
                     className="continue-btn"
                   />
                 </div>
@@ -285,6 +359,7 @@ function QuizPage({ cancelHandle }) {
               register={register}
               control={control}
               cancelHandle={cancelHandle}
+              isLoading={isLoading}
             />
           )}
         </div>

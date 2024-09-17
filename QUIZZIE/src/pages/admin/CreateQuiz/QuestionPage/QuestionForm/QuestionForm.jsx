@@ -4,11 +4,12 @@ import "./QuestionForm.css";
 import { useState } from "react";
 import Question from "../Question/Question";
 
-const QuestionForm = ({ register, control, cancelHandle, watch }) => {
+const QuestionForm = ({ register, control, cancelHandle, watch , isLoading=false}) => {
   const { fields, append, remove } = useFieldArray({
     name: "questions",
     control,
   });
+
 
   const [questionIndex, setQuestionIndex] = useState(0);
 
@@ -104,7 +105,9 @@ const QuestionForm = ({ register, control, cancelHandle, watch }) => {
             />
             <Button
               type="submit"
-              children="Create Quiz"
+              children={
+                isLoading ? <div className="loader"></div> : "Create Quiz"
+              }
               className="create-quiz-btn"
             />
           </div>

@@ -3,6 +3,7 @@
   display: grid;
   grid-template-rows: 1fr auto;
   gap: 7rem;
+  padding: 0 6rem;
 }
 
 .quiz-analytic-header {
@@ -100,16 +101,16 @@ hr {
   gap: 2rem;
 }
 
-.vertical-center{
-    align-self: center;
-    justify-self: start;
+.vertical-center {
+  align-self: center;
+  justify-self: start;
 }
 
-.span-row{
-    grid-row: 1/span 2;
-    gap: 1.5rem;
+.span-row {
+  grid-row: 1 / span 2;
+  gap: 1.5rem;
 }
 
-.horizontal-right{
-    justify-self: end;
+.horizontal-right {
+  justify-self: end;
 }

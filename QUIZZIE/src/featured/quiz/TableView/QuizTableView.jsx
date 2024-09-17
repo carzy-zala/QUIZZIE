@@ -82,7 +82,6 @@ const QuizTableView = () => {
 
   //#region edit handle
   const handleEdit = (quizId, quizType) => {
-
     setIsEdit({
       isClicked: true,
       quizId,
@@ -92,7 +91,7 @@ const QuizTableView = () => {
   //#endregion
 
   return (
-    <div>
+    <div style={{ paddingLeft: "3rem", paddingRight: "2rem" }}>
       {allQuiz.quizs.length ? (
         <div>
           <h1 className="quiz-analysis-heading">Quiz Analysis</h1>
