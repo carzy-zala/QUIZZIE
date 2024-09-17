@@ -90,37 +90,51 @@ function SignUp() {
         <label className="signup-label" htmlFor="password">
           Password
         </label>
-        <Input
-          id="password"
-          type="password"
-          className={`signup-input ${errors.password && `signup-input-error`}`}
-          {...register("password", {
-            required: "Password can't be empty",
-            validate: (value) => {
-              const hasUpperCase = /[A-Z]/.test(value);
-              const hasLowerCase = /[a-z]/.test(value);
-              const hasNumber = /\d/.test(value);
-              const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(value);
-              const minLength = value.length >= 8;
+        <div style={{ position: "relative" }} className="password">
+          <Input
+            id="password"
+            type="password"
+            className={`signup-input ${
+              errors.password && `signup-input-error`
+            } password-input`}
+            {...register("password", {
+              required: "Password can't be empty",
+              validate: (value) => {
+                const hasUpperCase = /[A-Z]/.test(value);
+                const hasLowerCase = /[a-z]/.test(value);
+                const hasNumber = /\d/.test(value);
+                const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+                const minLength = value.length >= 8;
 
-              if (!minLength) {
-                return "Password must be at least 8 characters long";
-              } else if (!hasUpperCase) {
-                return "Password must contain at least one uppercase letter";
-              } else if (!hasLowerCase) {
-                return "Password must contain at least one lowercase letter";
-              } else if (!hasNumber) {
-                return "Password must contain at least one number";
-              } else if (!hasSpecialChar) {
-                return "Password must contain at least one special character";
-              }
+                if (!minLength) {
+                  return "Password must be at least 8 characters long";
+                } else if (!hasUpperCase) {
+                  return "Password must contain at least one uppercase letter";
+                } else if (!hasLowerCase) {
+                  return "Password must contain at least one lowercase letter";
+                } else if (!hasNumber) {
+                  return "Password must contain at least one number";
+                } else if (!hasSpecialChar) {
+                  return "Password must contain at least one special character";
+                }
 
-              return true; // Valid password
-            },
-          })}
-          placeholder={errors.password && errors.password.message}
-        />
-
+                return true; // Valid password
+              },
+            })}
+            placeholder={errors.password && errors.password.message}
+          />
+          {
+            <div className="password-tooltip">
+              <ul>
+                <li style={{listStyle:"none"}}>Password should have 8 charcters</li>
+                <li style={{listStyle:"none"}}>Password must have at least one uppercase letter</li>
+                <li style={{listStyle:"none"}}>Password must have at least one lowercase letter </li>
+                <li style={{listStyle:"none"}}>Password must have at least one special character</li>
+                <li style={{listStyle:"none"}}>Password must have at least one number</li>
+              </ul>
+            </div>
+          }
+        </div>
         <label className="signup-label" htmlFor="cfpass">
           Confirm Password
         </label>
